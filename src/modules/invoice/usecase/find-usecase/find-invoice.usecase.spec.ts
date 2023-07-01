@@ -1,29 +1,27 @@
 import Id from "../../../_shared/domain/value-object/id.value-object";
+import Address from "../../domain/address.vo";
 import Invoice from "../../domain/invoice.entity";
+import Product from "../../domain/product.entity";
 import FindInvoiceUseCase from "./find-invoice.usecase";
+
+const product1 = new Product({
+    id: new Id("1"),
+    name: "monitor",
+    price: 750
+});
+const product2 = new Product({
+    id: new Id("2"),
+    name: "teclado",
+    price: 250
+});
+const address = new Address("av 1", "0", "casa", "toledo", "pr", "0000000");
 
 const invoice = new Invoice ({
     id: new Id("1"),
     name: "patrik",
     document: "000",
-    street: "av 1",
-    number: "0",
-    complement: "casa",
-    city: "toledo",
-    state: "pr",
-    zipCode: "0000000",
-    items: [
-        {
-            id: "1",
-            name: "monitor",
-            price: 750
-        },
-        {
-            id: "2",
-            name: "teclado",
-            price: 250
-        },
-    ]
+    address: address,
+    items: [product1, product2]
 });
 
 const MockRepository = () => {

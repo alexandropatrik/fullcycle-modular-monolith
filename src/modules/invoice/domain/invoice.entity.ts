@@ -7,17 +7,8 @@ type InvoceProps = {
     id?: Id;
     name: string;
     document: string;
-    street: string;
-    number: string;
-    complement: string;
-    city: string;
-    state: string;
-    zipCode: string;
-    items: {
-        id: string;
-        name: string;
-        price: number;
-    }[];
+    address: Address;
+    items: Product[];
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -32,14 +23,8 @@ export default class Invoice extends BaseEntity {
         super(props.id, props.createdAt, props.updatedAt);
         this._name = props.name;
         this._document = props.document;
-        this.changeAddress(props.street, props.number, props.complement, props.city, props.state, props.zipCode);
-        props.items.map((item) => {
-            this.addItem(new Product({
-                id: new Id(item.id),
-                name: item.name,
-                price: item.price
-            }));
-        });
+        this._address = props.address;
+        this._items = props.items;
         this.validate();
     }
 
