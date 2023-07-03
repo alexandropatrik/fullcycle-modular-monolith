@@ -6,26 +6,6 @@ import InvoiceGateway from "../gateway/invoice.gateway";
 import { InvoiceItemModel } from "./invoice-item.model";
 import { InvoiceModel } from "./invoice.model";
 
-const product1 = new Product({
-    id: new Id("1"),
-    name: "monitor",
-    price: 750
-});
-const product2 = new Product({
-    id: new Id("2"),
-    name: "teclado",
-    price: 250
-});
-const address = new Address("av 1", "0", "casa", "toledo", "pr", "0000000");
-
-const invoice = new Invoice ({
-    id: new Id("1"),
-    name: "patrik",
-    document: "000",
-    address: address,
-    items: [product1, product2]
-});
-
 export default class InvoiceRepository implements InvoiceGateway {
     async find(id: string): Promise<Invoice> {
         const invoice = await InvoiceModel.findOne({
@@ -40,8 +20,12 @@ export default class InvoiceRepository implements InvoiceGateway {
             id: new Id(invoice.id),
             name: invoice.name,
             document: invoice.document,
-            address: address,
-            items: [product1, product2],
+            address: new Address(invoice.street, invoice.number, invoice.complement, invoice.city, invoice.state, invoice.zipCode),
+            items: invoice.items.map((item) => new Product({
+                id: new Id(item.id),
+                name: item.name,
+                price: item.price
+            })),
             createdAt: invoice.createdAt,
             updatedAt: invoice.updatedAt
         });

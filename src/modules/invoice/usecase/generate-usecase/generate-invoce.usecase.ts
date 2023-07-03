@@ -6,18 +6,6 @@ import Product from "../../domain/product.entity";
 import InvoiceGateway from "../../gateway/invoice.gateway";
 import { GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto } from "./generate-invoice.usecase.dto";
 
-const product1 = new Product({
-    id: new Id("1"),
-    name: "monitor",
-    price: 750
-});
-const product2 = new Product({
-    id: new Id("2"),
-    name: "teclado",
-    price: 250
-});
-const address = new Address("av 1", "0", "casa", "toledo", "pr", "0000000");
-
 export default class GenerateInvoiceUseCase implements UseCaseInterface {
 
     private _invoiceRepository: InvoiceGateway;
@@ -31,8 +19,12 @@ export default class GenerateInvoiceUseCase implements UseCaseInterface {
             id: new Id(),
             name: input.name,
             document: input.document,
-            address: address,
-            items: [product1, product2],
+            address: new Address(input.street, input.number, input.complement, input.city, input.state, input.zipCode),
+            items: input.items.map((item) => new Product({
+                id: new Id(item.id),
+                name: item.name,
+                price: item.price
+            })),
         };
 
         const invoice = new Invoice(props);
