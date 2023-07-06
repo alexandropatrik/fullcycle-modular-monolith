@@ -33,6 +33,7 @@ describe ("product adm facade test", () => {
             name: "Product 1",
             description: "Product 1 description",
             purchasePrice: 100,
+            salesPrice: 150,
             stock: 10,
         };
 
@@ -55,6 +56,7 @@ describe ("product adm facade test", () => {
             name: "Product 1",
             description: "Product 1 description",
             purchasePrice: 100,
+            salesPrice: 150,
             stock: 10,
         };
 

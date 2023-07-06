@@ -28,7 +28,13 @@ describe("client repository test", () => {
             id: "1",
             name: "patrik",
             email: "alexandropatrik@gmail.com",
-            address: "toledo",
+            document: "0",
+            street: "r1",
+            number: 0,
+            complement: "c",
+            city: "toledo",
+            state: "pr",
+            zipCode: "0",
             createdAt: new Date(),
             updatedAt: new Date()
         });
@@ -39,7 +45,7 @@ describe("client repository test", () => {
         expect(result.id.id).toBe(client.id);
         expect(result.name).toBe(client.name);
         expect(result.email).toBe(client.email);
-        expect(result.address).toBe(client.address);
+        expect(result.street).toBe(client.street);
         expect(result.createdAt).toEqual(client.createdAt);
         expect(result.updatedAt).toEqual(client.updatedAt);
     });
@@ -49,7 +55,13 @@ describe("client repository test", () => {
             id: new Id("1"),
             name: "patrik",
             email: "alexandropatrik@gmail.com",
-            address: "toledo"
+            document: "1",
+            street: "r 1",
+            number: 0,
+            complement: "c",
+            city: "toledo",
+            state: "pr",
+            zipCode: "000"
         });
 
         const repository = new ClientRepository();
@@ -61,7 +73,7 @@ describe("client repository test", () => {
         expect(clientDb.id).toBe(client.id.id);
         expect(clientDb.name).toBe(client.name);
         expect(clientDb.email).toBe(client.email);
-        expect(clientDb.address).toBe(client.address);
+        expect(clientDb.street).toBe(client.street);
         expect(clientDb.createdAt).toEqual(client.createdAt);
         expect(clientDb.updatedAt).toEqual(client.updatedAt);
     });

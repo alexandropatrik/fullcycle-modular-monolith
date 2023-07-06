@@ -63,10 +63,10 @@ describe("invoice repository test", () => {
         expect(result.address.zipCode).toBe(invoice.address.zipCode);
         expect(result.total).toBe(invoice.total);
         expect(result.items.length).toBe(2);
-        expect(result.items[0].id.id).toBe(invoice.items[0].id.id);
+        expect(result.items[0].id.id).toBeDefined();
         expect(result.items[0].name).toBe(invoice.items[0].name);
         expect(result.items[0].price).toBe(invoice.items[0].price);
-        expect(result.items[1].id.id).toBe(invoice.items[1].id.id);
+        expect(result.items[1].id.id).toBeDefined();
         expect(result.items[1].name).toBe(invoice.items[1].name);
         expect(result.items[1].price).toBe(invoice.items[1].price);
         expect(result.createdAt).toEqual(invoice.createdAt);
@@ -96,10 +96,10 @@ describe("invoice repository test", () => {
         expect(invoiceDb.zipCode).toBe(invoice.address.zipCode);
         expect(invoiceDb.total).toBe(invoice.total);
         expect(invoiceDb.items.length).toBe(2);
-        expect(invoiceDb.items[0].id).toBe(invoice.items[0].id.id);
+        expect(invoiceDb.items[0].id).toBeDefined();
         expect(invoiceDb.items[0].name).toBe(invoice.items[0].name);
         expect(invoiceDb.items[0].price).toBe(invoice.items[0].price);
-        expect(invoiceDb.items[1].id).toBe(invoice.items[1].id.id);
+        expect(invoiceDb.items[1].id).toBeDefined();
         expect(invoiceDb.items[1].name).toBe(invoice.items[1].name);
         expect(invoiceDb.items[1].price).toBe(invoice.items[1].price);
         expect(invoiceDb.createdAt).toEqual(invoice.createdAt);

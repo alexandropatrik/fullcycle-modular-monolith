@@ -11,6 +11,7 @@ export default class ProductRepository implements ProductGateway {
             name: product.name,
             description: product.description,
             purchasePrice: product.purchasePrice,
+            salesPrice: product.salesPrice,
             stock: product.stock,
             createdAt: product.createdAt,
             updatedAt: product.updatedAt
@@ -30,6 +31,7 @@ export default class ProductRepository implements ProductGateway {
             name: product.name,
             description: product.description,
             purchasePrice: product.purchasePrice,
+            salesPrice: product.salesPrice,
             stock: product.stock,
             createdAt: product.createdAt,
             updatedAt: product.updatedAt

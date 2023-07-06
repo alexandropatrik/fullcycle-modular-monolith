@@ -5,6 +5,7 @@ export interface AddProductInputDto {
     name: string;
     description: string;
     purchasePrice: number;
+    salesPrice: number;
     stock: number;
 }
 

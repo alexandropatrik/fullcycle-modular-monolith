@@ -29,6 +29,7 @@ describe("produto repository test", () => {
             name: "Product 1",
             description: "Product 1 description",
             purchasePrice: 100,
+            salesPrice: 150,
             stock: 10
         };
         const product = new Product(productProps);
@@ -41,7 +42,7 @@ describe("produto repository test", () => {
         expect(productProps.description).toEqual(productDb.description);
         expect(productProps.purchasePrice).toEqual(productDb.purchasePrice);
         expect(productProps.stock).toEqual(productDb.stock);
-
+        expect(productProps.salesPrice).toEqual(productDb.salesPrice);
     });
 
     it("should find a product", async () => {

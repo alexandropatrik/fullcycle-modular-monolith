@@ -15,7 +15,20 @@ export class ProductModel extends Model {
     @Column({allowNull: false})
     description: string;
 
-    @Column({allowNull: false})
+    @Column({allowNull: true})
     salesPrice: number;
+
+    // para resolver o problema de ter dois models apontando para a mesma tabela sem usar as migrations
+    @Column({allowNull: true})
+    purchasePrice: number;
+
+    @Column({allowNull: true})
+    stock: number;
+
+    @Column({allowNull: true})
+    createdAt: Date;
+
+    @Column({allowNull: true})
+    updatedAt: Date;
 
 }

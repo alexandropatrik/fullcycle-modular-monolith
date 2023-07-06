@@ -24,7 +24,7 @@ export default class InvoiceRepository implements InvoiceGateway {
             items: invoice.items.map((item) => new Product({
                 id: new Id(item.id),
                 name: item.name,
-                price: item.price
+                price: item.price,
             })),
             createdAt: invoice.createdAt,
             updatedAt: invoice.updatedAt
@@ -43,10 +43,11 @@ export default class InvoiceRepository implements InvoiceGateway {
             state: invoice.address.state,
             zipCode: invoice.address.zipCode,
             items: invoice.items.map((item) => ({
-                id: item.id.id,
+                id: new Id().id,
                 name: item.name,
                 price: item.price,
                 invoiceId: invoice.id.id,
+                productId: item.id.id,
             })),
             createdAt: invoice.createdAt,
             updatedAt: invoice.updatedAt,
