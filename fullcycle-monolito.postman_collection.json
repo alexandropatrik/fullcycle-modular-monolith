@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "6151b9c7-d0fd-4fc7-a428-c5845c4c705c",
+		"name": "fullcycle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3636796"
+	},
+	"item": [
+		{
+			"name": "monolito",
+			"item": [
+				{
+					"name": "products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"p2\",\r\n    \"name\": \"teclado  usb\",\r\n    \"description\": \"teclado usb desc\",\r\n    \"purchasePrice\": 350,\r\n    \"stock\": 5,\r\n    \"salesPrice\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/products",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"c1\",\r\n    \"name\": \"patrik\",\r\n    \"email\": \"alexandropatrik@gmail.com\",\r\n    \"document\": \"123\",\r\n    \"street\": \"rua\",\r\n    \"number\": 1,\r\n    \"complement\": \"casa\",\r\n    \"city\": \"toledo\",\r\n    \"state\": \"pr\",\r\n    \"zipCode\": \"000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": \"c1\",\r\n    \"products\": [\r\n        {\r\n            \"productId\": \"p2\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/checkout",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": \"c1\",\r\n    \"products\": [\r\n        {\r\n            \"productId\": \"p2\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/invoice",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
