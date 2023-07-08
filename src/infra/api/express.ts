@@ -28,9 +28,7 @@ async function setupDb() {
         storage: ':memory:',
         logging: false,
     })
-    sequelize.addModels([ProductModel, ClientModel, OrderModel, OrderItemModel, InvoiceModel, InvoiceItemModel, TransactionModel]);
-    sequelize.sync( {force: true} );
-    sequelize.addModels([ProductCatalogModel]);
+    sequelize.addModels([ProductModel, ProductCatalogModel, ClientModel, OrderModel, OrderItemModel, InvoiceModel, InvoiceItemModel, TransactionModel]);
     sequelize.sync( {force: true} );
 
 }
